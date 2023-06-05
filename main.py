@@ -3,12 +3,13 @@ from art import logo
 import os
 import random
 import time
+#global variable to track remaining lives
 lives = 0
 
 
 def main():
-    print_banner()
-    start_game()
+    print_banner() #prints games logo
+    start_game() #starts game
 
 def start_game():
     global lives
@@ -21,13 +22,13 @@ def start_game():
             lives = 7
         elif user_diff == 'hard':
             lives = 5
-        play_game()
-    if start_game == 'n':
+        play_game() #begins games loop
+    if start_input == 'n':
         print("goodbye")
 
 
 def print_banner():
-    print(logo)
+    print(logo) #displays games logo when function is called
 
 
 def play_game():
@@ -36,15 +37,17 @@ def play_game():
         score = 0
         global lives
         while lives >= 1:
+            #randomly selects QB1 and QB2 from the list of dictionaries
             QB1 = random.choice(data)
             QB2 = random.choice(data)
             if QB1 == QB2:
+                #if QB2 is the same as QB1 reselects QB2
                 QB2 = random.choice(data)
             if lives >= 1:
-                name1, name2 = get_name(QB1, QB2)
-                team1, team2 = get_team(QB1, QB2)
-                year1, year2 = get_year(QB1, QB2)
-                TD1, TD2 = get_touchdowns(QB1,QB2)
+                name1, name2 = get_name(QB1, QB2) #grabs the names of QB1 and QB2
+                team1, team2 = get_team(QB1, QB2) #gets the teams for QB1 and QB2
+                year1, year2 = get_year(QB1, QB2) #gets the year of the season 
+                TD1, TD2 = get_touchdowns(QB1,QB2) #gets touchdown counts for QB1 and QB2
                 print(f"CURRENT SCORE: {score} CURRENT LIVES: {lives}")
                 user_answer = input(f"Who had more passing touchdowns? \nQB1:{name1} with the {team1} in {year1}?\nOR\nQB2:{name2} with the {team2} in {year2}?\nAnswer 'A' for {name1} 'B' for {name2} or 'C' for Their Season was Equal\n")
                 correct_answer, correct_QB, correct_TD, incorrect_QB, incorrect_TD = score_game(QB1, QB2, user_answer)
@@ -52,7 +55,9 @@ def play_game():
                     score += 1
                     print(f"Correct! The answer is {correct_QB} with {correct_TD} over {incorrect_QB} with {incorrect_TD}")
                     print(f"CURRENT SCORE: {score}")
+                    #adds delay so user can see the message
                     time.sleep(4)
+                    #clears console to reduce clutter
                     os.system('cls' if os.name == 'nt' else 'clear')
                 elif user_answer != correct_answer:
                     print(f"Wrong answer! The answer was {correct_QB} with {correct_TD} over {incorrect_QB} with {incorrect_TD}")
@@ -71,28 +76,28 @@ def play_game():
                 print(f"You ran out of lives! Your final score was {score}")
                 playing = False  
 
-
+#function to get names of QB1 and QB2
 def get_name(QB1, QB2):
     name1 = QB1['name']
     name2 = QB2['name']
     return name1, name2
     
-
+#function to get team of QB1 and QB2
 def get_team(QB1, QB2):
     team1 = QB1['team']
     team2 = QB2['team']
     return team1, team2
-
+#function to get season year 
 def get_year(QB1, QB2):
     year1 = QB1['year']
     year2 = QB2['year']
     return year1, year2
-
+#function to get touchdown counts
 def get_touchdowns(QB1, QB2):
     TD1 = QB1['touchdowns']
     TD2 = QB2['touchdowns']
     return TD1, TD2
-
+#function to score the game and get correct and incorrect answers
 def score_game(QB1, QB2, user_answer):
     TD1 = QB1['touchdowns']
     TD2 = QB2['touchdowns']
