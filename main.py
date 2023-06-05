@@ -55,19 +55,19 @@ def play_game():
                     print(f"Correct! The answer is {correct_QB} with {correct_TD} over {incorrect_QB} with {incorrect_TD}")
                     print(f"CURRENT SCORE: {score}")
                     #adds a delay of 4 seconds so the user has a chance to read the output
-                    time.sleep(4)
+                    countdown_timer()
                     #clears the console to reduce clutter from multiple rounds
                     os.system('cls' if os.name == 'nt' else 'clear')
                 elif user_answer != correct_answer:
                     print(f"Wrong answer! The answer was {correct_QB} with {correct_TD} over {incorrect_QB} with {incorrect_TD}")
                     lives -= 1
                     print(f"You lost a life! {lives} left!")
-                    time.sleep(4)
+                    countdown_timer()
                     os.system('cls' if os.name == 'nt' else 'clear')
                     
                 else:
                     print(f"I am not sure what you typed but the answer is {correct_QB} with {correct_TD} over {incorrect_QB} with {incorrect_TD}")
-                    time.sleep(4)
+                    countdown_timer()
                     os.system('cls' if os.name == 'nt' else 'clear')
                     score -= 1
                     lives -= 1
@@ -75,6 +75,14 @@ def play_game():
             print(f"You ran out of lives! Your final score was {score}")
             playing = False  
 
+#function to show user a countdown to the next question
+def countdown_timer():
+    countdown = 4
+    for i in range(4):
+        print(f"\nNext question in {countdown}")
+        time.sleep(1)
+        countdown -= 1
+        
 #function to get QB names 
 def get_name(QB1, QB2):
     name1 = QB1['name']
