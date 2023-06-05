@@ -110,10 +110,6 @@ def score_game(QB1, QB2, user_answer):
     TD2 = QB2['touchdowns']
     name1 = QB1['name']
     name2 = QB2['name']
-    correct_QB = None
-    incorrect_QB = None
-    correct_TD = None
-    incorrect_TD = None
     if TD1 > TD2:
         correct_answer = 'a'
         correct_QB = name1
