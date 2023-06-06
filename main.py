@@ -55,7 +55,7 @@ def play_game():
                 print(f"CURRENT SCORE: {score} CURRENT LIVES: {lives}")
                 countdown_thread = threading.Thread(target=user_input_timer)
                 countdown_thread.start()
-                user_answer = (f"Who had more passing touchdowns? \nQB1:{name1} with the {team1} in {year1}?\nOR\nQB2:{name2} with the {team2} in {year2}?\nAnswer 'A' for {name1} 'B' for {name2} or 'C' for Their Season was Equal\n").lower()
+                user_answer = input(f"Who had more passing touchdowns? \nQB1:{name1} with the {team1} in {year1}?\nOR\nQB2:{name2} with the {team2} in {year2}?\nAnswer 'A' for {name1} 'B' for {name2} or 'C' for Their Season was Equal\n").lower()
                 countdown_thread.join()
                 correct_answer, correct_QB, correct_TD, incorrect_QB, incorrect_TD = score_game(QB1, QB2, user_answer)
                 if out_of_time:
