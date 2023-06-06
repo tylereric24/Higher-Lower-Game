@@ -3,10 +3,11 @@ from art import logo #importing ascii logo from other module
 import os #importing os to utilize clear screen
 import random 
 import time
-import threading
+from multiprocessing import Process
 lives = 0
-input_countdown = 0
+input_countdown = 5
 out_of_time = False
+user_answer = ''
 
 
 def main():
@@ -36,10 +37,10 @@ def print_banner():
 def play_game():
     playing = True
     global out_of_time
+    global input_countdown
+    global lives
     score = 0
     while playing == True:
-        global lives
-        global input_countdown
         while lives >= 1:
             #Randomly selects QB1 and QB2 from data
             QB1 = random.choice(data)
@@ -53,36 +54,37 @@ def play_game():
                 year1, year2 = get_year(QB1, QB2) #gets year of season
                 TD1, TD2 = get_touchdowns(QB1,QB2)
                 print(f"CURRENT SCORE: {score} CURRENT LIVES: {lives}")
-                countdown_thread = threading.Thread(target=user_input_timer)
-                countdown_thread.start()
+                countdown_proc = Process(target=user_input_timer)
+                countdown_proc.start()
                 user_answer = input(f"Who had more passing touchdowns? \nQB1:{name1} with the {team1} in {year1}?\nOR\nQB2:{name2} with the {team2} in {year2}?\nAnswer 'A' for {name1} 'B' for {name2} or 'C' for Their Season was Equal\n").lower()
-                countdown_thread.join()
-                correct_answer, correct_QB, correct_TD, incorrect_QB, incorrect_TD = score_game(QB1, QB2, user_answer)
-                if out_of_time:
-                    print("You ran out of time!")
-                    post_question_countdown()
-                    os.system('cls' if os.name == 'nt' else 'clear')
-                    lives -= 1
-                elif user_answer == correct_answer:
-                    score += 1
-                    print(f"Correct! The answer is {correct_QB} with {correct_TD} over {incorrect_QB} with {incorrect_TD}")
-                    print(f"CURRENT SCORE: {score}")
-                    #adds a delay of 4 seconds so the user has a chance to read the output
-                    post_question_countdown()
-                    #clears the console to reduce clutter from multiple rounds
-                    os.system('cls' if os.name == 'nt' else 'clear')
-                elif user_answer != correct_answer:
-                    print(f"Wrong answer! The answer was {correct_QB} with {correct_TD} over {incorrect_QB} with {incorrect_TD}")
-                    lives -= 1
-                    print(f"You lost a life! {lives} left!")
-                    post_question_countdown()
-                    os.system('cls' if os.name == 'nt' else 'clear')
-                    
-                else:
-                    print(f"I am not sure what you typed but the answer is {correct_QB} with {correct_TD} over {incorrect_QB} with {incorrect_TD}")
-                    post_question_countdown()
-                    os.system('cls' if os.name == 'nt' else 'clear')
-                    lives -= 1
+                if user_answer is not None:
+                    countdown_proc.terminate()
+                    correct_answer, correct_QB, correct_TD, incorrect_QB, incorrect_TD = score_game(QB1, QB2, user_answer)
+                    if out_of_time:
+                            print("You ran out of time!")
+                            post_question_countdown()
+                            os.system('cls' if os.name == 'nt' else 'clear')
+                            lives -= 1
+                    if user_answer == correct_answer:
+                        score += 1
+                        print(f"Correct! The answer is {correct_QB} with {correct_TD} over {incorrect_QB} with {incorrect_TD}")
+                        print(f"CURRENT SCORE: {score}")
+                        #adds a delay of 4 seconds so the user has a chance to read the output
+                        post_question_countdown()
+                        #clears the console to reduce clutter from multiple rounds
+                        os.system('cls' if os.name == 'nt' else 'clear')
+                    elif user_answer != correct_answer:
+                        print(f"Wrong answer! The answer was {correct_QB} with {correct_TD} over {incorrect_QB} with {incorrect_TD}")
+                        lives -= 1
+                        print(f"You lost a life! {lives} left!")
+                        post_question_countdown()
+                        os.system('cls' if os.name == 'nt' else 'clear')  
+                    else:
+                        print(f"I am not sure what you typed but the answer is {correct_QB} with {correct_TD} over {incorrect_QB} with {incorrect_TD}")
+                        post_question_countdown()
+                        os.system('cls' if os.name == 'nt' else 'clear')
+                        lives -= 1
+
         else:
             print(f"You ran out of lives! Your final score was {score}")
             playing = False  
@@ -94,12 +96,13 @@ def user_input_timer():
     input_countdown = 5
     for i in range (6):
         time.sleep(1)
-        print(f"SECONDS TO ANSWER: {input_countdown}", end="\r")
+        print(f"         | SECONDS TO ANSWER: {input_countdown}", end="\r")
         input_countdown -= 1
-    while input_countdown > 0:
-        out_of_time = False
-    else:
+    if input_countdown == 0:
         out_of_time = True
+        
+    
+    
     
 
 
@@ -139,10 +142,10 @@ def score_game(QB1, QB2, user_answer):
     TD2 = QB2['touchdowns']
     name1 = QB1['name']
     name2 = QB2['name']
-    #correct_QB = None
-    #incorrect_QB = None
-    #correct_TD = None
-    #incorrect_TD = None
+    correct_QB = None
+    incorrect_QB = None
+    correct_TD = None
+    incorrect_TD = None
     if TD1 > TD2:
         correct_answer = 'a'
         correct_QB = name1
