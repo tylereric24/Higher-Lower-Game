@@ -70,8 +70,19 @@ export function difficultyFor(round: number): Difficulty {
   return { minGap: 0.01, maxGap: 0.12, starsOnly: false };
 }
 
+export interface PickOptions {
+  /** Player-seasons already shown this run or puzzle. */
+  used?: ReadonlySet<number>;
+  /** Restrict to one position mode's pool. */
+  position?: PositionKey;
+  /** Force league leaders only (daily challenge), overriding the difficulty ramp. */
+  starsOnly?: boolean;
+  /** Players already shown; avoided unless the pool runs dry. */
+  players?: ReadonlySet<string>;
+}
+
 /**
- * Choose the unknown card for a round. Constraints are relaxed in order (gap ceiling,
+ * Choose the second card for a round. Constraints are relaxed in order (gap ceiling,
  * star pool, gap floor) so a pick always exists; it never returns the same player or
  * an equal value unless the dataset leaves no alternative.
  */
@@ -81,26 +92,28 @@ export function pickOpponent(
   left: Entry,
   round: number,
   rng: Rng,
-  used: ReadonlySet<number> = new Set(),
-  position?: PositionKey,
+  opts: PickOptions = {},
 ): Entry {
   const d = difficultyFor(round);
-  const pool = ds.pool(category, position);
-  const base = (starsOnly: boolean) =>
-    (starsOnly ? pool.stars : pool.all).filter(
-      (e) => e.player !== left.player && !used.has(e.seasonId) && e.value !== left.value,
+  const used = opts.used ?? new Set<number>();
+  const pool = ds.pool(category, opts.position);
+  const starsOnly = opts.starsOnly ?? d.starsOnly;
+  const players = opts.players ?? new Set<string>();
+  const base = (stars: boolean) =>
+    (stars ? pool.stars : pool.all).filter(
+      (e) => e.player !== left.player && !used.has(e.seasonId) && !players.has(e.player) && e.value !== left.value,
     );
-  const inBand = (pool: Entry[], min: number, max: number) =>
-    pool.filter((e) => {
+  const inBand = (entries: Entry[], min: number, max: number) =>
+    entries.filter((e) => {
       const g = relativeGap(e.value, left.value);
       return g >= min && g <= max;
     });
 
   const attempts: (() => Entry[])[] = [
-    () => inBand(base(d.starsOnly), d.minGap, d.maxGap),
-    () => inBand(base(d.starsOnly), d.minGap, 1),
-    () => inBand(base(false), d.minGap, 1),
-    () => base(false),
+    () => inBand(base(starsOnly), d.minGap, d.maxGap),
+    () => inBand(base(starsOnly), d.minGap, 1),
+    () => base(starsOnly),
+    ...(opts.starsOnly ? [] : [() => inBand(base(false), d.minGap, 1), () => base(false)]),
     () => pool.all.filter((e) => e.seasonId !== left.seasonId),
   ];
   for (const attempt of attempts) {
@@ -110,17 +123,31 @@ export function pickOpponent(
   throw new Error(`no opponent available in ${category}`);
 }
 
-export function randomStart(ds: Dataset, category: CategoryKey, rng: Rng, position?: PositionKey): Entry {
-  return pick(rng, ds.pool(category, position).stars);
+/**
+ * A fresh pair. Both values are hidden from the player, so pairs never chain: a card
+ * carried over from the last round would have its value already revealed.
+ */
+export function pickPair(ds: Dataset, category: CategoryKey, round: number, rng: Rng, opts: PickOptions = {}): Round {
+  const used = opts.used ?? new Set<number>();
+  const pool = ds.pool(category, opts.position);
+  const starsOnly = opts.starsOnly ?? difficultyFor(round).starsOnly;
+  const players = opts.players ?? new Set<string>();
+  const fresh = (entries: Entry[]) => entries.filter((e) => !used.has(e.seasonId) && !players.has(e.player));
+  const candidates = [fresh(starsOnly ? pool.stars : pool.all), fresh(pool.all), pool.all].find((c) => c.length)!;
+  const left = pick(rng, candidates);
+  const right = pickOpponent(ds, category, left, round, rng, { ...opts, used: new Set([...used, left.seasonId]) });
+  return { category, left, right };
 }
 
-/** Endless chain: the revealed card becomes the known card for the next round. */
+/** Endless streak of independent pairs; difficulty ramps with the streak. */
 export class ClassicRun {
   streak = 0;
   continuesUsed = 0;
   over = false;
   round: Round;
   private readonly used = new Set<number>();
+  /** Recent players only: a long run would otherwise exhaust a position's pool. */
+  private readonly recentPlayers: string[] = [];
   private readonly spec: ModeSpec;
 
   constructor(
@@ -129,10 +156,7 @@ export class ClassicRun {
     private readonly rng: Rng,
   ) {
     this.spec = modeSpec(mode);
-    const category = pick(rng, this.spec.categories);
-    const left = randomStart(ds, category, rng, this.spec.position);
-    this.used.add(left.seasonId);
-    this.round = this.makeRound(category, left);
+    this.round = this.nextRound();
   }
 
   guess(g: Guess): boolean {
@@ -140,7 +164,7 @@ export class ClassicRun {
     const correct = isCorrect(this.round, g);
     if (correct) {
       this.streak++;
-      this.advance();
+      this.round = this.nextRound();
     } else {
       this.over = true;
     }
@@ -152,24 +176,20 @@ export class ClassicRun {
     if (!this.over) throw new Error('run is not over');
     this.continuesUsed++;
     this.over = false;
-    this.advance();
+    this.round = this.nextRound();
   }
 
-  private advance(): void {
-    const left = this.round.right;
-    let category = this.round.category;
-    if (this.spec.categories.length > 1) {
-      // Switch to any stat in this mode that the revealed season also qualifies in.
-      const options = [...this.ds.categoriesFor(left.seasonId).keys()].filter((c) => this.spec.categories.includes(c));
-      category = pick(this.rng, options);
-    }
-    const leftEntry = this.ds.categoriesFor(left.seasonId).get(category) ?? left;
-    this.round = this.makeRound(category, leftEntry);
-  }
-
-  private makeRound(category: CategoryKey, left: Entry): Round {
-    const right = pickOpponent(this.ds, category, left, this.streak, this.rng, this.used, this.spec.position);
-    this.used.add(right.seasonId);
-    return { category, left, right };
+  private nextRound(): Round {
+    const category = pick(this.rng, this.spec.categories);
+    const round = pickPair(this.ds, category, this.streak, this.rng, {
+      used: this.used,
+      position: this.spec.position,
+      players: new Set(this.recentPlayers),
+    });
+    this.used.add(round.left.seasonId);
+    this.used.add(round.right.seasonId);
+    this.recentPlayers.push(round.left.player, round.right.player);
+    this.recentPlayers.splice(0, this.recentPlayers.length - 20);
+    return round;
   }
 }

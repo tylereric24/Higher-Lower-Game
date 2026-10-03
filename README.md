@@ -6,9 +6,15 @@ yards and TDs; receiving yards, receptions and TDs; PPR fantasy points; sacks;
 interceptions; field goals. About 9,800 player-seasons from 2,800+ players: every season
 since 1999, plus 565 seasons from 73 notable QBs going back to 1957.
 
+Both players' numbers stay hidden until you answer: is the bottom player's total higher
+or lower than the top player's? Every round is a fresh pair, since carrying a card over
+would show a number you just saw.
+
 - **Daily challenge**: 10 matchups, the same for everyone that day, with a shareable
-  emoji score grid and a daily streak. Quitting mid-puzzle keeps your answers, so retries
-  can't be farmed.
+  emoji score grid and a daily streak. Each round uses a different stat and two different
+  players, all drawn from that season's league leaders; the value gap tightens from 30%+
+  to about 1-12% by round 10. Quitting mid-puzzle keeps your answers, so retries can't be
+  farmed.
 - **Classic**: endless streak, one miss ends it. Play Mixed, a position (QB, RB, WR, TE,
   Defense, Kickers; the stat rotates among that position's categories) or a single stat.
   Difficulty ramps by shrinking the gap between the two values (30%+ early, ~1-12% after 15

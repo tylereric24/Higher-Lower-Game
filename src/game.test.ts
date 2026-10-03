@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { CATEGORIES, getDataset, POSITION_BY_KEY, POSITIONS, type CategoryKey, type Entry } from './data';
-import { ClassicRun, difficultyFor, isCorrect, modeSpec, pickOpponent, relativeGap, type Round } from './game';
+import { ClassicRun, difficultyFor, isCorrect, modeSpec, pickOpponent, pickPair, relativeGap, type Round } from './game';
 import { mulberry32 } from './rng';
 
 const ds = getDataset();
@@ -72,7 +72,7 @@ describe('pickOpponent', () => {
       const stars = ds.pool(key).stars;
       const left = stars[i % stars.length];
       const used = new Set([ds.byCategory[key][0].seasonId]);
-      const right = pickOpponent(ds, key, left, round, rng, used);
+      const right = pickOpponent(ds, key, left, round, rng, { used });
       const d = difficultyFor(round);
       expect(right.player).not.toBe(left.player);
       expect(right.value).not.toBe(left.value);
@@ -99,22 +99,33 @@ describe('pickOpponent', () => {
 });
 
 describe('ClassicRun', () => {
-  it('chains: the revealed card becomes the next known card', () => {
+  it('deals a fresh pair every round, so no value is ever pre-revealed', () => {
     const run = new ClassicRun(ds, 'recYd', mulberry32(3));
     for (let i = 0; i < 40; i++) {
       const { left, right } = run.round;
       expect(run.guess(right.value >= left.value ? 'higher' : 'lower')).toBe(true);
-      expect(run.round.left.seasonId).toBe(right.seasonId);
+      expect(run.round.left.seasonId).not.toBe(right.seasonId);
+      expect(run.round.left.seasonId).not.toBe(left.seasonId);
     }
     expect(run.streak).toBe(40);
   });
 
+  it('pickPair honors starsOnly at any difficulty', () => {
+    const rng = mulberry32(13);
+    const stars = new Set(ds.pool('rushYd').stars.map((e) => e.seasonId));
+    for (let i = 0; i < 200; i++) {
+      const { left, right } = pickPair(ds, 'rushYd', 20, rng, { starsOnly: true });
+      expect(stars.has(left.seasonId) && stars.has(right.seasonId)).toBe(true);
+    }
+  });
+
   it('never repeats a player-season within a run', () => {
     const run = new ClassicRun(ds, 'passTd', mulberry32(11));
-    const seen = new Set([run.round.left.seasonId]);
+    const seen = new Set<number>();
     for (let i = 0; i < 100; i++) {
       const { left, right } = run.round;
-      expect(seen.has(right.seasonId)).toBe(false);
+      expect(seen.has(left.seasonId) || seen.has(right.seasonId)).toBe(false);
+      seen.add(left.seasonId);
       seen.add(right.seasonId);
       run.guess(right.value >= left.value ? 'higher' : 'lower');
     }
@@ -131,7 +142,7 @@ describe('ClassicRun', () => {
     run.continueRun();
     expect(run.over).toBe(false);
     expect(run.streak).toBe(1);
-    expect(run.round.left.seasonId).toBe(r.right.seasonId);
+    expect(run.round.right.seasonId).not.toBe(r.right.seasonId);
   });
 
   it('mixed mode always pairs values from the same category', () => {

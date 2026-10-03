@@ -17,15 +17,24 @@ describe('daily challenge', () => {
     expect(a).not.toEqual(b);
   });
 
-  it('has 10 rounds, 10 different stats, no repeated player-season', () => {
+  it('has 10 rounds, 10 different stats, no player appears twice', () => {
     for (let d = 1; d <= 60; d++) {
       const key = `2027-01-${String((d % 28) + 1).padStart(2, '0')}`;
       const rounds = dailyRounds(ds, key);
       expect(rounds).toHaveLength(10);
       expect(new Set(rounds.map((r) => r.category)).size).toBe(10);
       expect(rounds.map((r) => r.category)).not.toContain('fgMade');
-      const ids = rounds.flatMap((r) => [r.left.seasonId, r.right.seasonId]);
-      expect(new Set(ids).size).toBe(ids.length);
+      const names = rounds.flatMap((r) => [r.left.player, r.right.player]);
+      expect(new Set(names).size).toBe(names.length);
+    }
+  });
+
+  it('only uses league leaders, so a shared puzzle never hinges on an obscure name', () => {
+    for (let d = 1; d <= 28; d++) {
+      for (const r of dailyRounds(ds, `2027-02-${String(d).padStart(2, '0')}`)) {
+        const stars = new Set(ds.pool(r.category).stars.map((e) => e.seasonId));
+        expect(stars.has(r.left.seasonId) && stars.has(r.right.seasonId)).toBe(true);
+      }
     }
   });
 
