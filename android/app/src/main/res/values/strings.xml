@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Gridiron Higher/Lower</string>
+    <string name="title_activity_main">Gridiron Higher/Lower</string>
+    <string name="package_name">io.github.tylereric24.gridiron</string>
+    <string name="custom_url_scheme">io.github.tylereric24.gridiron</string>
+    <!-- Replace with your AdMob Android app ID (ca-app-pub-XXXX~YYYY) before release. -->
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+</resources>

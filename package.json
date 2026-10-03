@@ -1,0 +1,44 @@
+{
+  "name": "gridiron-higher-lower",
+  "version": "1.0.0",
+  "description": "Football stats higher/lower game: web, iOS and Android",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc",
+    "data": "python3 scripts/build_data.py",
+    "cap:sync": "npm run build && npx cap sync"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylereric24/Higher-Lower-Game.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/tylereric24/Higher-Lower-Game/issues"
+  },
+  "homepage": "https://github.com/tylereric24/Higher-Lower-Game#readme",
+  "dependencies": {
+    "@capacitor-community/admob": "^8.1.0",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/preferences": "^8.0.1",
+    "@capacitor/share": "^8.0.3",
+    "@revenuecat/purchases-capacitor": "^13.7.0"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/ios": "^8.5.2",
+    "playwright-core": "^1.63.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
+  },
+  "private": true,
+  "type": "module"
+}
