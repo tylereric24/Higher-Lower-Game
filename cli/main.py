@@ -15,8 +15,8 @@ def load_seasons():
     """Passing TD seasons as dicts: name, team, year, touchdowns."""
     raw = json.loads(DATA_PATH.read_text())
     seasons = []
-    for season_id, value, _star in raw["stats"]["passTd"]:
-        player, team, year = raw["seasons"][season_id]
+    for season_id, value in raw["stats"]["passTd"]:
+        player, team, year, _position = raw["seasons"][season_id]
         seasons.append({
             "name": raw["players"][player],
             "team": raw["teams"][team],

@@ -1,11 +1,10 @@
-import { CATEGORIES } from '../data';
+import { CATEGORIES, POSITIONS } from '../data';
 import { dateKey, DAILY_ROUNDS, puzzleNumber } from '../daily';
-import type { Mode } from '../game';
+import { modeLabel, type Mode } from '../game';
 import { needsPrivacyOptions, showPrivacyOptions } from '../monetization/ads';
 import { PRIVACY_POLICY_URL } from '../monetization/config';
 import { buyRemoveAds, purchasesSupported, removeAdsPrice, restorePurchases } from '../monetization/purchases';
 import { currentDailyStreak, dailyFor, persist, save } from '../storage';
-import { modeLabel } from './classic';
 import { APP_NAME, esc, header, on, render, toast } from './dom';
 import { go, register, wireNav } from './router';
 
@@ -26,15 +25,15 @@ register('home', () => {
         <div class="tile-sub">${done ? 'New puzzle at midnight' : 'Same 10 matchups for everyone. Share your score.'}</div>
       </button>
       <button class="tile" data-nav="classic-pick">
-        <div class="tile-kicker">Classic${bestAny ? ` &middot; best ${bestAny}` : ''}</div>
+        <div class="tile-kicker">Classic${bestAny ? ` &middot; high score ${bestAny}` : ''}</div>
         <div class="tile-title">Endless streak</div>
-        <div class="tile-sub">QBs, backs and receivers since 1999. One miss ends it.</div>
+        <div class="tile-sub">Every position, 12 stats, QBs back to the '50s. One miss ends it.</div>
       </button>
       <div class="tile-row">
         <button class="btn" data-nav="stats">Stats</button>
         <button class="btn" data-nav="settings">Settings</button>
       </div>
-      <p class="fine">Stats: nflverse (CC-BY 4.0). Not affiliated with the NFL or any team.</p>
+      <p class="fine">Stats: nflverse (CC-BY 4.0), Wikipedia (CC-BY-SA). Not affiliated with the NFL or any team.</p>
     </div>`);
   wireNav(el);
 });
@@ -46,7 +45,7 @@ register('stats', () => {
   history.forEach((h) => dist[h.results.filter(Boolean).length]++);
   const maxDist = Math.max(1, ...dist);
   const accuracy = save.guesses ? Math.round((100 * save.correct) / save.guesses) : 0;
-  const modes: Mode[] = ['mixed', ...CATEGORIES.map((c) => c.key)];
+  const modes: Mode[] = ['mixed', ...POSITIONS.map((p) => p.key), ...CATEGORIES.map((c) => c.key)];
   const el = render(`${header('Stats')}
     <div class="kpis">
       <div><b>${save.gamesPlayed}</b><span>runs</span></div>
@@ -54,7 +53,7 @@ register('stats', () => {
       <div><b>${currentDailyStreak(today)}</b><span>daily streak</span></div>
       <div><b>${save.daily.maxStreak}</b><span>max daily</span></div>
     </div>
-    <h2>Best streaks</h2>
+    <h2>High scores</h2>
     <div class="list">
       ${modes.map((m) => `<div class="row"><span>${esc(modeLabel(m))}</span><b>${save.best[m] ?? 0}</b></div>`).join('')}
     </div>
@@ -95,9 +94,10 @@ register('settings', () => {
       <a class="row-btn" href="${esc(PRIVACY_POLICY_URL)}" target="_blank" rel="noopener"><span>Privacy policy</span><span>&#8599;</span></a>
     </div>
     <h2>About</h2>
-    <p class="fine left">${esc(APP_NAME)} v${__APP_VERSION__}. Regular-season stats from
+    <p class="fine left">${esc(APP_NAME)} v${__APP_VERSION__}. Regular-season stats from 1999 on are from
       <a href="https://github.com/nflverse/nflverse-data" target="_blank" rel="noopener">nflverse</a>
-      under CC-BY 4.0. Player names and team names are used for identification only. Not affiliated with
+      (CC-BY 4.0). Earlier quarterback seasons are from
+      <a href="https://en.wikipedia.org/" target="_blank" rel="noopener">Wikipedia</a> (CC-BY-SA 4.0). Player names and team names are used for identification only. Not affiliated with
       or endorsed by the NFL, the NFLPA, or any team.</p>`);
   wireNav(el);
   el.querySelector<HTMLInputElement>('[data-set="haptics"]')?.addEventListener('change', (e) => {

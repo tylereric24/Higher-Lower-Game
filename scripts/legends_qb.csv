@@ -1,0 +1,566 @@
+player,team,year,attempts,passing_yards,passing_tds,passing_interceptions
+Bart Starr,Green Bay Packers,1957,215,1489,8,10
+Johnny Unitas,Baltimore Colts,1957,301,2550,24,17
+Johnny Unitas,Baltimore Colts,1958,263,2007,19,7
+Johnny Unitas,Baltimore Colts,1959,367,2899,32,14
+John Brodie,San Francisco 49ers,1960,207,1111,6,9
+Johnny Unitas,Baltimore Colts,1960,378,3099,25,24
+Bart Starr,Green Bay Packers,1961,295,2418,16,16
+Fran Tarkenton,Minnesota Vikings,1961,280,1997,18,17
+John Brodie,San Francisco 49ers,1961,283,2588,14,12
+Johnny Unitas,Baltimore Colts,1961,420,2990,16,24
+Sonny Jurgensen,Philadelphia Eagles,1961,416,3723,32,24
+Bart Starr,Green Bay Packers,1962,285,2438,12,9
+Fran Tarkenton,Minnesota Vikings,1962,329,2595,22,25
+John Brodie,San Francisco 49ers,1962,304,2272,18,16
+Johnny Unitas,Baltimore Colts,1962,389,2967,23,23
+Sonny Jurgensen,Philadelphia Eagles,1962,366,3261,22,26
+Bart Starr,Green Bay Packers,1963,244,1855,15,10
+Fran Tarkenton,Minnesota Vikings,1963,297,2311,15,15
+Johnny Unitas,Baltimore Colts,1963,410,3481,20,12
+Roman Gabriel,Los Angeles Rams,1963,281,1947,8,11
+Bart Starr,Green Bay Packers,1964,272,2144,15,4
+Fran Tarkenton,Minnesota Vikings,1964,306,2506,22,11
+John Brodie,San Francisco 49ers,1964,392,2498,14,16
+Johnny Unitas,Baltimore Colts,1964,305,2824,19,6
+Sonny Jurgensen,Washington,1964,385,2934,24,13
+Bart Starr,Green Bay Packers,1965,251,2055,16,9
+Fran Tarkenton,Minnesota Vikings,1965,329,2609,19,11
+Joe Namath,New York Jets,1965,340,2220,18,15
+Johnny Unitas,Baltimore Colts,1965,282,2530,23,12
+Sonny Jurgensen,Washington,1965,356,2367,15,16
+Bart Starr,Green Bay Packers,1966,251,2257,14,3
+Fran Tarkenton,Minnesota Vikings,1966,358,2561,17,16
+Joe Namath,New York Jets,1966,471,3379,19,27
+John Brodie,San Francisco 49ers,1966,427,2810,16,22
+Johnny Unitas,Baltimore Colts,1966,348,2748,22,24
+Roman Gabriel,Los Angeles Rams,1966,397,2540,10,16
+Sonny Jurgensen,Washington,1966,436,3209,28,19
+Bart Starr,Green Bay Packers,1967,210,1823,9,17
+Fran Tarkenton,New York Giants,1967,377,3088,29,19
+Jim Hart,St. Louis Cardinals,1967,397,3008,19,30
+Joe Namath,New York Jets,1967,491,4007,26,28
+John Brodie,San Francisco 49ers,1967,349,2013,11,16
+Johnny Unitas,Baltimore Colts,1967,436,3428,20,16
+Roman Gabriel,Los Angeles Rams,1967,371,2779,25,13
+Sonny Jurgensen,Washington,1967,508,3747,31,16
+Fran Tarkenton,New York Giants,1968,337,2555,21,12
+Jim Hart,St. Louis Cardinals,1968,316,2059,15,18
+Joe Namath,New York Jets,1968,380,3147,15,17
+Roman Gabriel,Los Angeles Rams,1968,366,2364,19,16
+Sonny Jurgensen,Washington,1968,292,1980,17,11
+Craig Morton,Dallas Cowboys,1969,302,2619,21,15
+Fran Tarkenton,New York Giants,1969,409,2918,23,8
+Joe Namath,New York Jets,1969,361,2734,19,17
+John Brodie,San Francisco 49ers,1969,347,2405,16,15
+Johnny Unitas,Baltimore Colts,1969,327,2342,12,20
+Roman Gabriel,Los Angeles Rams,1969,399,2549,24,7
+Sonny Jurgensen,Washington,1969,442,3102,22,15
+Bart Starr,Green Bay Packers,1970,255,1645,8,13
+Bob Griese,Miami Dolphins,1970,245,2019,12,17
+Craig Morton,Dallas Cowboys,1970,207,1819,15,7
+Daryle Lamonica,Oakland Raiders,1970,356,2516,22,15
+Fran Tarkenton,New York Giants,1970,389,2777,19,12
+Jim Hart,St. Louis Cardinals,1970,373,2575,14,18
+Johnny Unitas,Baltimore Colts,1970,321,2213,14,18
+Len Dawson,Kansas City Chiefs,1970,262,1876,13,14
+Roman Gabriel,Los Angeles Rams,1970,407,2552,16,12
+Sonny Jurgensen,Washington,1970,337,2354,23,10
+Terry Bradshaw,Pittsburgh Steelers,1970,218,1410,6,24
+Bob Griese,Miami Dolphins,1971,263,2089,19,9
+Daryle Lamonica,Oakland Raiders,1971,242,1717,16,16
+Fran Tarkenton,New York Giants,1971,386,2567,11,21
+Jim Hart,St. Louis Cardinals,1971,243,1626,8,14
+Jim Plunkett,New England Patriots,1971,328,2158,19,16
+John Brodie,San Francisco 49ers,1971,387,2642,18,24
+Len Dawson,Kansas City Chiefs,1971,301,2504,15,13
+Roger Staubach,Dallas Cowboys,1971,211,1882,15,4
+Roman Gabriel,Los Angeles Rams,1971,352,2238,17,10
+Terry Bradshaw,Pittsburgh Steelers,1971,373,2259,13,22
+Archie Manning,New Orleans Saints,1972,448,2781,18,21
+Craig Morton,Dallas Cowboys,1972,339,2396,15,21
+Daryle Lamonica,Oakland Raiders,1972,281,1998,18,12
+Fran Tarkenton,Minnesota Vikings,1972,378,2651,18,13
+Jim Plunkett,New England Patriots,1972,355,2196,8,25
+Joe Namath,New York Jets,1972,324,2816,19,21
+Ken Anderson,Cincinnati Bengals,1972,301,1918,7,7
+Len Dawson,Kansas City Chiefs,1972,305,1835,13,12
+Roman Gabriel,Los Angeles Rams,1972,323,2027,12,15
+Terry Bradshaw,Pittsburgh Steelers,1972,308,1887,12,12
+Archie Manning,New Orleans Saints,1973,267,1642,10,12
+Bob Griese,Miami Dolphins,1973,218,1422,17,8
+Fran Tarkenton,Minnesota Vikings,1973,274,2113,15,7
+Jim Hart,St. Louis Cardinals,1973,320,2223,15,10
+Jim Plunkett,New England Patriots,1973,376,2550,13,17
+Ken Anderson,Cincinnati Bengals,1973,329,2428,18,12
+Ken Stabler,Oakland Raiders,1973,260,1997,14,10
+Roger Staubach,Dallas Cowboys,1973,286,2428,23,15
+Roman Gabriel,Philadelphia Eagles,1973,460,3219,23,12
+Archie Manning,New Orleans Saints,1974,261,1429,6,16
+Bert Jones,Baltimore Colts,1974,270,1610,8,12
+Bob Griese,Miami Dolphins,1974,253,1968,16,15
+Dan Fouts,San Diego Chargers,1974,237,1732,8,13
+Fran Tarkenton,Minnesota Vikings,1974,351,2598,17,12
+Jim Hart,St. Louis Cardinals,1974,388,2411,20,8
+Jim Plunkett,New England Patriots,1974,352,2457,19,22
+Joe Ferguson,Buffalo Bills,1974,232,1588,12,12
+Joe Namath,New York Jets,1974,361,2616,20,22
+Ken Anderson,Cincinnati Bengals,1974,328,2667,18,10
+Ken Stabler,Oakland Raiders,1974,310,2469,26,12
+Len Dawson,Kansas City Chiefs,1974,235,1573,7,13
+Roger Staubach,Dallas Cowboys,1974,360,2552,11,15
+Roman Gabriel,Philadelphia Eagles,1974,338,1867,9,12
+Archie Manning,New Orleans Saints,1975,338,1683,7,20
+Bert Jones,Baltimore Colts,1975,344,2483,18,8
+Craig Morton,New York Giants,1975,363,2359,11,16
+Fran Tarkenton,Minnesota Vikings,1975,425,2994,25,13
+Jim Hart,St. Louis Cardinals,1975,345,2507,19,19
+Joe Ferguson,Buffalo Bills,1975,321,2426,25,17
+Joe Namath,New York Jets,1975,326,2286,15,28
+Ken Anderson,Cincinnati Bengals,1975,377,3169,21,11
+Ken Stabler,Oakland Raiders,1975,293,2296,16,24
+Roger Staubach,Dallas Cowboys,1975,348,2666,17,16
+Roman Gabriel,Philadelphia Eagles,1975,292,1644,13,11
+Steve Bartkowski,Atlanta Falcons,1975,255,1662,13,15
+Steve Grogan,New England Patriots,1975,274,1976,11,18
+Terry Bradshaw,Pittsburgh Steelers,1975,286,2055,18,9
+Bert Jones,Baltimore Colts,1976,343,3104,24,9
+Bob Griese,Miami Dolphins,1976,272,2097,11,12
+Brian Sipe,Cleveland Browns,1976,312,2113,17,14
+Craig Morton,New York Giants,1976,284,1865,9,20
+Dan Fouts,San Diego Chargers,1976,359,2535,14,15
+Fran Tarkenton,Minnesota Vikings,1976,412,2961,17,8
+Jim Hart,St. Louis Cardinals,1976,388,2946,18,13
+Jim Plunkett,San Francisco 49ers,1976,243,1592,13,16
+Joe Namath,New York Jets,1976,230,1090,4,16
+Ken Anderson,Cincinnati Bengals,1976,338,2367,19,14
+Ken Stabler,Oakland Raiders,1976,291,2737,27,17
+Roger Staubach,Dallas Cowboys,1976,369,2715,14,11
+Steve Grogan,New England Patriots,1976,302,1903,18,20
+Archie Manning,New Orleans Saints,1977,205,1284,8,9
+Bert Jones,Baltimore Colts,1977,393,2686,17,11
+Bob Griese,Miami Dolphins,1977,307,2252,22,13
+Craig Morton,Denver Broncos,1977,254,1929,14,8
+Fran Tarkenton,Minnesota Vikings,1977,258,1734,9,14
+Jim Hart,St. Louis Cardinals,1977,355,2542,13,20
+Jim Plunkett,San Francisco 49ers,1977,248,1693,9,14
+Joe Ferguson,Buffalo Bills,1977,457,2803,12,24
+Ken Anderson,Cincinnati Bengals,1977,323,2145,11,11
+Ken Stabler,Oakland Raiders,1977,294,2176,20,20
+Roger Staubach,Dallas Cowboys,1977,361,2720,18,9
+Ron Jaworski,Philadelphia Eagles,1977,346,2183,18,21
+Steve Grogan,New England Patriots,1977,305,2162,17,21
+Terry Bradshaw,Pittsburgh Steelers,1977,314,2523,17,19
+Archie Manning,New Orleans Saints,1978,471,3416,17,16
+Bob Griese,Miami Dolphins,1978,235,1791,11,11
+Brian Sipe,Cleveland Browns,1978,399,2906,21,15
+Craig Morton,Denver Broncos,1978,267,1802,11,8
+Dan Fouts,San Diego Chargers,1978,381,2999,24,20
+Fran Tarkenton,Minnesota Vikings,1978,572,3468,25,32
+Jim Hart,St. Louis Cardinals,1978,477,3121,16,18
+Joe Ferguson,Buffalo Bills,1978,330,2136,16,15
+Joe Theismann,Washington,1978,390,2593,13,18
+Ken Anderson,Cincinnati Bengals,1978,319,2219,10,22
+Ken Stabler,Oakland Raiders,1978,406,2944,16,30
+Roger Staubach,Dallas Cowboys,1978,413,3190,25,16
+Ron Jaworski,Philadelphia Eagles,1978,398,2487,16,16
+Steve Bartkowski,Atlanta Falcons,1978,369,2489,10,18
+Steve Grogan,New England Patriots,1978,362,2824,15,23
+Terry Bradshaw,Pittsburgh Steelers,1978,368,2915,28,20
+Archie Manning,New Orleans Saints,1979,420,3169,15,20
+Bob Griese,Miami Dolphins,1979,310,2160,14,16
+Brian Sipe,Cleveland Browns,1979,535,3793,28,26
+Craig Morton,Denver Broncos,1979,370,2626,16,19
+Dan Fouts,San Diego Chargers,1979,530,4082,24,24
+Doug Williams,Tampa Bay Buccaneers,1979,397,2448,18,24
+Jim Hart,St. Louis Cardinals,1979,378,2218,9,20
+Joe Ferguson,Buffalo Bills,1979,458,3572,14,15
+Joe Theismann,Washington,1979,395,2797,20,13
+Ken Anderson,Cincinnati Bengals,1979,339,2340,16,10
+Ken Stabler,Oakland Raiders,1979,498,3615,26,22
+Phil Simms,New York Giants,1979,265,1743,13,14
+Roger Staubach,Dallas Cowboys,1979,461,3586,27,11
+Ron Jaworski,Philadelphia Eagles,1979,374,2669,18,12
+Steve Bartkowski,Atlanta Falcons,1979,380,2505,17,20
+Steve Grogan,New England Patriots,1979,423,3286,28,20
+Terry Bradshaw,Pittsburgh Steelers,1979,472,3724,26,25
+Tommy Kramer,Minnesota Vikings,1979,566,3397,23,24
+Archie Manning,New Orleans Saints,1980,509,3716,23,20
+Bert Jones,Baltimore Colts,1980,446,3134,23,21
+Brian Sipe,Cleveland Browns,1980,554,4132,30,14
+Craig Morton,Denver Broncos,1980,301,2150,12,13
+Dan Fouts,San Diego Chargers,1980,589,4715,30,24
+Danny White,Dallas Cowboys,1980,436,3287,28,25
+Doug Williams,Tampa Bay Buccaneers,1980,521,3396,20,16
+Jim Hart,St. Louis Cardinals,1980,425,2946,16,20
+Jim Plunkett,Oakland Raiders,1980,320,2299,18,16
+Joe Ferguson,Buffalo Bills,1980,439,2805,20,18
+Joe Montana,San Francisco 49ers,1980,273,1795,15,9
+Joe Theismann,Washington,1980,454,2962,17,16
+Ken Anderson,Cincinnati Bengals,1980,275,1778,6,13
+Ken Stabler,Houston Oilers,1980,457,3202,13,28
+Phil Simms,New York Giants,1980,402,2321,15,19
+Ron Jaworski,Philadelphia Eagles,1980,451,3529,27,12
+Steve Bartkowski,Atlanta Falcons,1980,463,3544,31,16
+Steve Grogan,New England Patriots,1980,306,2475,18,22
+Terry Bradshaw,Pittsburgh Steelers,1980,424,3339,24,22
+Tommy Kramer,Minnesota Vikings,1980,522,3582,19,23
+Archie Manning,New Orleans Saints,1981,232,1447,5,11
+Bert Jones,Baltimore Colts,1981,426,3094,21,20
+Brian Sipe,Cleveland Browns,1981,567,3876,17,25
+Craig Morton,Denver Broncos,1981,376,3195,21,14
+Dan Fouts,San Diego Chargers,1981,609,4802,33,17
+Danny White,Dallas Cowboys,1981,391,3098,22,13
+Doug Williams,Tampa Bay Buccaneers,1981,471,3563,19,14
+Jim Hart,St. Louis Cardinals,1981,241,1694,11,14
+Joe Ferguson,Buffalo Bills,1981,498,3652,24,20
+Joe Montana,San Francisco 49ers,1981,488,3565,19,12
+Joe Theismann,Washington,1981,496,3568,19,20
+Ken Anderson,Cincinnati Bengals,1981,479,3754,29,10
+Ken Stabler,Houston Oilers,1981,285,1988,14,18
+Neil Lomax,St. Louis Cardinals,1981,236,1575,4,10
+Phil Simms,New York Giants,1981,316,2031,11,9
+Ron Jaworski,Philadelphia Eagles,1981,461,3095,23,20
+Steve Bartkowski,Atlanta Falcons,1981,533,3829,30,23
+Steve Grogan,New England Patriots,1981,216,1859,7,16
+Terry Bradshaw,Pittsburgh Steelers,1981,370,2887,22,14
+Tommy Kramer,Minnesota Vikings,1981,593,3912,26,24
+Dan Fouts,San Diego Chargers,1982,330,2883,17,11
+Danny White,Dallas Cowboys,1982,247,2079,16,12
+Doug Williams,Tampa Bay Buccaneers,1982,307,2071,9,11
+Jim McMahon,Chicago Bears,1982,210,1501,9,7
+Jim Plunkett,Los Angeles Raiders,1982,261,2035,14,15
+Joe Ferguson,Buffalo Bills,1982,264,1597,7,16
+Joe Montana,San Francisco 49ers,1982,346,2613,17,11
+Joe Theismann,Washington,1982,252,2033,13,9
+Ken Anderson,Cincinnati Bengals,1982,309,2495,12,9
+Neil Lomax,St. Louis Cardinals,1982,205,1367,5,6
+Ron Jaworski,Philadelphia Eagles,1982,286,2076,12,12
+Steve Bartkowski,Atlanta Falcons,1982,262,1905,8,11
+Terry Bradshaw,Pittsburgh Steelers,1982,240,1768,17,11
+Tommy Kramer,Minnesota Vikings,1982,308,2037,15,12
+Brian Sipe,Cleveland Browns,1983,496,3566,26,23
+Dan Fouts,San Diego Chargers,1983,340,2975,20,15
+Dan Marino,Miami Dolphins,1983,296,2210,20,6
+Danny White,Dallas Cowboys,1983,533,3980,29,23
+Dave Krieg,Seattle Seahawks,1983,243,2139,18,11
+Jim McMahon,Chicago Bears,1983,295,2184,12,13
+Jim Plunkett,Los Angeles Raiders,1983,379,2935,20,18
+Joe Ferguson,Buffalo Bills,1983,508,2995,26,25
+Joe Montana,San Francisco 49ers,1983,515,3910,26,12
+Joe Theismann,Washington,1983,459,3714,29,11
+John Elway,Denver Broncos,1983,259,1663,7,14
+Ken Anderson,Cincinnati Bengals,1983,297,2333,12,13
+Ken Stabler,New Orleans Saints,1983,311,1988,9,18
+Neil Lomax,St. Louis Cardinals,1983,354,2636,24,11
+Ron Jaworski,Philadelphia Eagles,1983,446,3315,20,18
+Steve Bartkowski,Atlanta Falcons,1983,432,3167,22,5
+Steve Grogan,New England Patriots,1983,303,2411,15,12
+Dan Fouts,San Diego Chargers,1984,507,3740,19,17
+Dan Marino,Miami Dolphins,1984,564,5084,48,17
+Danny White,Dallas Cowboys,1984,233,1580,11,11
+Dave Krieg,Seattle Seahawks,1984,480,3671,32,24
+Joe Ferguson,Buffalo Bills,1984,344,1991,12,17
+Joe Montana,San Francisco 49ers,1984,432,3630,28,10
+Joe Theismann,Washington,1984,477,3391,24,13
+John Elway,Denver Broncos,1984,380,2598,18,15
+Ken Anderson,Cincinnati Bengals,1984,275,2107,10,12
+Ken O'Brien,New York Jets,1984,203,1402,6,7
+Neil Lomax,St. Louis Cardinals,1984,560,4614,28,16
+Phil Simms,New York Giants,1984,533,4044,22,18
+Ron Jaworski,Philadelphia Eagles,1984,427,2754,16,14
+Steve Bartkowski,Atlanta Falcons,1984,269,2158,11,10
+Tommy Kramer,Minnesota Vikings,1984,236,1678,9,10
+Warren Moon,Houston Oilers,1984,450,3338,12,14
+Bernie Kosar,Cleveland Browns,1985,248,1578,8,7
+Boomer Esiason,Cincinnati Bengals,1985,431,3443,27,12
+Dan Fouts,San Diego Chargers,1985,430,3638,27,20
+Dan Marino,Miami Dolphins,1985,567,4137,30,21
+Danny White,Dallas Cowboys,1985,450,3157,21,17
+Dave Krieg,Seattle Seahawks,1985,532,3602,27,20
+Jim McMahon,Chicago Bears,1985,313,2392,15,11
+Joe Montana,San Francisco 49ers,1985,494,3653,27,13
+Joe Theismann,Washington,1985,301,1774,8,16
+John Elway,Denver Broncos,1985,605,3891,22,23
+Ken O'Brien,New York Jets,1985,488,3888,25,8
+Neil Lomax,St. Louis Cardinals,1985,471,3214,18,12
+Phil Simms,New York Giants,1985,495,3829,22,20
+Ron Jaworski,Philadelphia Eagles,1985,484,3450,17,20
+Tommy Kramer,Minnesota Vikings,1985,506,3522,19,26
+Warren Moon,Houston Oilers,1985,377,2709,15,19
+Bernie Kosar,Cleveland Browns,1986,531,3854,17,10
+Boomer Esiason,Cincinnati Bengals,1986,469,3959,24,17
+Dan Fouts,San Diego Chargers,1986,430,3031,16,22
+Dan Marino,Miami Dolphins,1986,623,4746,44,23
+Dave Krieg,Seattle Seahawks,1986,375,2921,21,11
+Jim Kelly,Buffalo Bills,1986,480,3593,22,17
+Jim Plunkett,Los Angeles Raiders,1986,252,1986,14,9
+Joe Montana,San Francisco 49ers,1986,307,2236,8,9
+John Elway,Denver Broncos,1986,504,3485,19,13
+Ken O'Brien,New York Jets,1986,482,3690,25,20
+Neil Lomax,St. Louis Cardinals,1986,421,2583,13,12
+Phil Simms,New York Giants,1986,468,3487,21,22
+Randall Cunningham,Philadelphia Eagles,1986,209,1391,8,7
+Ron Jaworski,Philadelphia Eagles,1986,245,1405,8,6
+Steve Young,Tampa Bay Buccaneers,1986,363,2282,8,13
+Tommy Kramer,Minnesota Vikings,1986,372,3000,24,10
+Warren Moon,Houston Oilers,1986,488,3489,13,26
+Bernie Kosar,Cleveland Browns,1987,389,3033,22,9
+Bobby Hebert,New Orleans Saints,1987,294,2119,15,9
+Boomer Esiason,Cincinnati Bengals,1987,440,3321,16,19
+Dan Fouts,San Diego Chargers,1987,364,2517,10,15
+Dan Marino,Miami Dolphins,1987,444,3245,26,13
+Danny White,Dallas Cowboys,1987,362,2617,12,17
+Dave Krieg,Seattle Seahawks,1987,294,2131,23,15
+Jim Everett,Los Angeles Rams,1987,302,2064,10,13
+Jim Kelly,Buffalo Bills,1987,419,2798,19,11
+Jim McMahon,Chicago Bears,1987,210,1639,12,8
+Joe Montana,San Francisco 49ers,1987,398,3054,31,13
+John Elway,Denver Broncos,1987,410,3198,19,12
+Ken O'Brien,New York Jets,1987,393,2696,13,8
+Neil Lomax,St. Louis Cardinals,1987,463,3387,24,12
+Phil Simms,New York Giants,1987,282,2230,17,9
+Randall Cunningham,Philadelphia Eagles,1987,406,2786,23,12
+Wade Wilson,Minnesota Vikings,1987,264,2106,14,13
+Warren Moon,Houston Oilers,1987,368,2806,21,18
+Bernie Kosar,Cleveland Browns,1988,259,1890,10,7
+Bobby Hebert,New Orleans Saints,1988,478,3156,20,15
+Boomer Esiason,Cincinnati Bengals,1988,388,3572,28,14
+Bubby Brister,Pittsburgh Steelers,1988,370,2634,11,14
+Chris Chandler,Indianapolis Colts,1988,233,1619,8,12
+Dan Marino,Miami Dolphins,1988,606,4434,28,23
+Dave Krieg,Seattle Seahawks,1988,228,1741,18,8
+Doug Williams,Washington,1988,380,2609,15,12
+Jim Everett,Los Angeles Rams,1988,517,3964,31,18
+Jim Kelly,Buffalo Bills,1988,452,3380,15,17
+Joe Montana,San Francisco 49ers,1988,397,2981,18,10
+John Elway,Denver Broncos,1988,496,3309,17,19
+Ken O'Brien,New York Jets,1988,424,2567,15,7
+Mark Rypien,Washington,1988,208,1730,18,13
+Neil Lomax,Phoenix Cardinals,1988,443,3395,20,11
+Phil Simms,New York Giants,1988,479,3359,21,11
+Randall Cunningham,Philadelphia Eagles,1988,560,3808,24,16
+Vinny Testaverde,Tampa Bay Buccaneers,1988,466,3240,13,35
+Wade Wilson,Minnesota Vikings,1988,332,2746,15,9
+Warren Moon,Houston Oilers,1988,294,2327,17,8
+Bernie Kosar,Cleveland Browns,1989,513,3533,18,14
+Bobby Hebert,New Orleans Saints,1989,353,2686,15,15
+Boomer Esiason,Cincinnati Bengals,1989,455,3525,28,11
+Bubby Brister,Pittsburgh Steelers,1989,342,2365,9,10
+Dan Marino,Miami Dolphins,1989,550,3997,24,22
+Dave Krieg,Seattle Seahawks,1989,499,3309,21,20
+Jim Everett,Los Angeles Rams,1989,518,4310,29,17
+Jim Kelly,Buffalo Bills,1989,391,3130,25,18
+Jim McMahon,San Diego Chargers,1989,318,2132,10,10
+Joe Montana,San Francisco 49ers,1989,386,3521,26,8
+John Elway,Denver Broncos,1989,416,3051,18,18
+Ken O'Brien,New York Jets,1989,477,3346,12,18
+Mark Rypien,Washington,1989,476,3768,22,13
+Phil Simms,New York Giants,1989,405,3061,14,14
+Randall Cunningham,Philadelphia Eagles,1989,532,3400,21,15
+Steve Grogan,New England Patriots,1989,261,1697,9,14
+Troy Aikman,Dallas Cowboys,1989,293,1749,9,18
+Vinny Testaverde,Tampa Bay Buccaneers,1989,480,3133,20,22
+Wade Wilson,Minnesota Vikings,1989,362,2543,9,12
+Warren Moon,Houston Oilers,1989,464,3631,23,14
+Bernie Kosar,Cleveland Browns,1990,423,2562,10,15
+Boomer Esiason,Cincinnati Bengals,1990,402,3031,24,22
+Bubby Brister,Pittsburgh Steelers,1990,387,2725,20,14
+Dan Marino,Miami Dolphins,1990,531,3563,21,11
+Dave Krieg,Seattle Seahawks,1990,448,3194,15,20
+Jeff George,Indianapolis Colts,1990,334,2152,16,13
+Jim Everett,Los Angeles Rams,1990,554,3989,23,17
+Jim Harbaugh,Chicago Bears,1990,312,2178,10,6
+Jim Kelly,Buffalo Bills,1990,346,2829,24,9
+Joe Montana,San Francisco 49ers,1990,520,3944,26,16
+John Elway,Denver Broncos,1990,502,3526,15,14
+Ken O'Brien,New York Jets,1990,411,2855,13,10
+Mark Rypien,Washington,1990,304,2070,16,11
+Phil Simms,New York Giants,1990,311,2284,15,4
+Randall Cunningham,Philadelphia Eagles,1990,465,3466,30,13
+Rich Gannon,Minnesota Vikings,1990,349,2278,16,16
+Rodney Peete,Detroit Lions,1990,271,1974,13,8
+Troy Aikman,Dallas Cowboys,1990,399,2579,11,18
+Vinny Testaverde,Tampa Bay Buccaneers,1990,365,2818,17,18
+Warren Moon,Houston Oilers,1990,584,4689,33,13
+Bernie Kosar,Cleveland Browns,1991,494,3487,18,9
+Bobby Hebert,New Orleans Saints,1991,248,1676,9,8
+Boomer Esiason,Cincinnati Bengals,1991,413,2883,13,16
+Dan Marino,Miami Dolphins,1991,549,3970,25,13
+Dave Krieg,Seattle Seahawks,1991,285,2080,11,12
+Erik Kramer,Detroit Lions,1991,265,1635,11,8
+Jeff George,Indianapolis Colts,1991,485,2910,10,12
+Jeff Hostetler,New York Giants,1991,285,2032,5,4
+Jim Everett,Los Angeles Rams,1991,490,3438,11,20
+Jim Harbaugh,Chicago Bears,1991,478,3121,15,16
+Jim Kelly,Buffalo Bills,1991,474,3844,33,17
+Jim McMahon,Philadelphia Eagles,1991,311,2239,12,11
+John Elway,Denver Broncos,1991,451,3253,13,12
+Ken O'Brien,New York Jets,1991,489,3300,10,11
+Mark Rypien,Washington,1991,421,3564,28,11
+Neil O'Donnell,Pittsburgh Steelers,1991,286,1963,11,7
+Rich Gannon,Minnesota Vikings,1991,354,2166,12,6
+Steve Young,San Francisco 49ers,1991,279,2517,17,8
+Troy Aikman,Dallas Cowboys,1991,363,2754,11,10
+Vinny Testaverde,Tampa Bay Buccaneers,1991,326,1994,8,15
+Warren Moon,Houston Oilers,1991,655,4690,23,21
+Bobby Hebert,New Orleans Saints,1992,422,3287,19,16
+Boomer Esiason,Cincinnati Bengals,1992,278,1407,11,15
+Brett Favre,Green Bay Packers,1992,471,3227,18,13
+Chris Chandler,Phoenix Cardinals,1992,413,2832,15,15
+Dan Marino,Miami Dolphins,1992,554,4116,24,16
+Dave Krieg,Kansas City Chiefs,1992,413,3115,15,12
+Jeff George,Indianapolis Colts,1992,306,1963,7,15
+Jim Everett,Los Angeles Rams,1992,475,3323,22,18
+Jim Harbaugh,Chicago Bears,1992,358,2486,13,12
+Jim Kelly,Buffalo Bills,1992,462,3457,23,19
+John Elway,Denver Broncos,1992,316,2242,10,17
+Mark Rypien,Washington,1992,479,3282,13,17
+Neil O'Donnell,Pittsburgh Steelers,1992,313,2283,13,9
+Rich Gannon,Minnesota Vikings,1992,279,1905,12,13
+Rodney Peete,Detroit Lions,1992,213,1702,9,9
+Stan Humphries,San Diego Chargers,1992,454,3356,16,18
+Steve Young,San Francisco 49ers,1992,402,3465,25,7
+Troy Aikman,Dallas Cowboys,1992,473,3445,23,14
+Vinny Testaverde,Tampa Bay Buccaneers,1992,358,2554,14,16
+Warren Moon,Houston Oilers,1992,346,2521,18,12
+Bobby Hebert,Atlanta Falcons,1993,430,2978,24,17
+Boomer Esiason,New York Jets,1993,473,3421,16,11
+Brett Favre,Green Bay Packers,1993,522,3303,19,24
+Bubby Brister,Philadelphia Eagles,1993,309,1905,14,5
+Drew Bledsoe,New England Patriots,1993,429,2494,15,15
+Jeff George,Indianapolis Colts,1993,407,2526,8,6
+Jeff Hostetler,Los Angeles Raiders,1993,419,3242,14,10
+Jim Everett,Los Angeles Rams,1993,274,1652,8,12
+Jim Harbaugh,Chicago Bears,1993,325,2002,7,11
+Jim Kelly,Buffalo Bills,1993,470,3382,18,18
+Jim McMahon,Minnesota Vikings,1993,331,1968,9,8
+Joe Montana,Kansas City Chiefs,1993,298,2144,13,7
+John Elway,Denver Broncos,1993,551,4030,25,10
+Mark Rypien,Washington,1993,319,1514,4,10
+Neil O'Donnell,Pittsburgh Steelers,1993,486,3208,14,7
+Phil Simms,New York Giants,1993,400,3038,15,9
+Rodney Peete,Detroit Lions,1993,252,1670,6,14
+Scott Mitchell,Miami Dolphins,1993,233,1773,12,8
+Stan Humphries,San Diego Chargers,1993,324,1981,12,10
+Steve Young,San Francisco 49ers,1993,462,4023,29,16
+Troy Aikman,Dallas Cowboys,1993,392,3100,15,6
+Vinny Testaverde,Cleveland Browns,1993,230,1797,14,9
+Wade Wilson,New Orleans Saints,1993,388,2457,12,15
+Warren Moon,Houston Oilers,1993,520,3485,21,21
+Boomer Esiason,New York Jets,1994,440,2782,17,13
+Brett Favre,Green Bay Packers,1994,582,3882,33,14
+Dan Marino,Miami Dolphins,1994,615,4453,30,17
+Dave Krieg,Detroit Lions,1994,212,1629,14,3
+Drew Bledsoe,New England Patriots,1994,691,4555,25,27
+Jeff Blake,Cincinnati Bengals,1994,306,2154,14,9
+Jeff George,Atlanta Falcons,1994,524,3734,23,18
+Jeff Hostetler,Los Angeles Raiders,1994,455,3334,20,16
+Jim Everett,New Orleans Saints,1994,540,3855,22,18
+Jim Harbaugh,Indianapolis Colts,1994,202,1440,9,6
+Jim Kelly,Buffalo Bills,1994,448,3114,22,17
+Joe Montana,Kansas City Chiefs,1994,493,3283,16,9
+John Elway,Denver Broncos,1994,494,3490,16,10
+Neil O'Donnell,Pittsburgh Steelers,1994,370,2443,13,9
+Randall Cunningham,Philadelphia Eagles,1994,490,3229,16,13
+Scott Mitchell,Detroit Lions,1994,246,1456,10,11
+Stan Humphries,San Diego Chargers,1994,453,3209,17,12
+Steve Young,San Francisco 49ers,1994,461,3969,35,10
+Troy Aikman,Dallas Cowboys,1994,361,2676,13,12
+Vinny Testaverde,Cleveland Browns,1994,376,2575,16,18
+Warren Moon,Minnesota Vikings,1994,601,4264,18,19
+Boomer Esiason,New York Jets,1995,389,2275,16,15
+Brett Favre,Green Bay Packers,1995,570,4413,38,13
+Chris Chandler,Houston Oilers,1995,356,2460,17,10
+Dan Marino,Miami Dolphins,1995,482,3668,24,15
+Dave Krieg,Arizona Cardinals,1995,521,3554,16,21
+Drew Bledsoe,New England Patriots,1995,636,3507,13,16
+Erik Kramer,Chicago Bears,1995,522,3838,29,10
+Gus Frerotte,Washington,1995,396,2751,13,13
+Jeff Blake,Cincinnati Bengals,1995,567,3822,28,17
+Jeff George,Atlanta Falcons,1995,557,4143,24,11
+Jeff Hostetler,Oakland Raiders,1995,286,1998,12,9
+Jim Everett,New Orleans Saints,1995,567,3970,26,14
+Jim Harbaugh,Indianapolis Colts,1995,314,2575,17,5
+Jim Kelly,Buffalo Bills,1995,458,3130,22,13
+John Elway,Denver Broncos,1995,542,3970,26,14
+Kerry Collins,Carolina Panthers,1995,432,2717,14,19
+Mark Brunell,Jacksonville Jaguars,1995,346,2168,15,7
+Mark Rypien,St. Louis Rams,1995,217,1448,9,8
+Neil O'Donnell,Pittsburgh Steelers,1995,416,2970,17,7
+Rodney Peete,Philadelphia Eagles,1995,375,2326,8,14
+Scott Mitchell,Detroit Lions,1995,583,4338,32,12
+Stan Humphries,San Diego Chargers,1995,478,3381,17,14
+Steve Young,San Francisco 49ers,1995,447,3200,20,11
+Trent Dilfer,Tampa Bay Buccaneers,1995,415,2774,4,18
+Troy Aikman,Dallas Cowboys,1995,432,3304,16,7
+Vinny Testaverde,Cleveland Browns,1995,392,2883,17,10
+Warren Moon,Minnesota Vikings,1995,606,4228,33,14
+Bobby Hebert,Atlanta Falcons,1996,488,3152,22,25
+Boomer Esiason,Arizona Cardinals,1996,339,2293,11,14
+Brad Johnson,Minnesota Vikings,1996,311,2258,17,10
+Brett Favre,Green Bay Packers,1996,543,3899,39,13
+Chris Chandler,Houston Oilers,1996,320,2099,16,11
+Dan Marino,Miami Dolphins,1996,373,2795,17,9
+Dave Krieg,Chicago Bears,1996,377,2278,14,12
+Drew Bledsoe,New England Patriots,1996,623,4086,27,15
+Gus Frerotte,Washington,1996,470,3453,12,11
+Jeff Blake,Cincinnati Bengals,1996,549,3624,24,14
+Jeff Hostetler,Oakland Raiders,1996,402,2548,23,14
+Jim Everett,New Orleans Saints,1996,464,2797,12,16
+Jim Harbaugh,Indianapolis Colts,1996,405,2630,13,11
+Jim Kelly,Buffalo Bills,1996,379,2810,14,19
+John Elway,Denver Broncos,1996,466,3328,26,14
+Kerry Collins,Carolina Panthers,1996,364,2454,14,9
+Mark Brunell,Jacksonville Jaguars,1996,557,4367,19,20
+Scott Mitchell,Detroit Lions,1996,437,2917,17,17
+Stan Humphries,San Diego Chargers,1996,416,2670,18,13
+Steve Young,San Francisco 49ers,1996,316,2410,14,6
+Trent Dilfer,Tampa Bay Buccaneers,1996,482,2859,12,19
+Troy Aikman,Dallas Cowboys,1996,465,3126,12,13
+Vinny Testaverde,Baltimore Ravens,1996,549,4177,33,19
+Warren Moon,Minnesota Vikings,1996,247,1610,7,9
+Brad Johnson,Minnesota Vikings,1997,452,3036,20,12
+Brett Favre,Green Bay Packers,1997,513,3867,35,16
+Chris Chandler,Atlanta Falcons,1997,342,2692,20,7
+Dan Marino,Miami Dolphins,1997,548,3780,16,11
+Drew Bledsoe,New England Patriots,1997,522,3706,28,15
+Elvis Grbac,Kansas City Chiefs,1997,314,1943,11,6
+Erik Kramer,Chicago Bears,1997,477,3011,14,14
+Gus Frerotte,Washington,1997,402,2682,17,12
+Jeff Blake,Cincinnati Bengals,1997,317,2125,8,7
+Jeff George,Oakland Raiders,1997,521,3917,29,9
+Jim Harbaugh,Indianapolis Colts,1997,309,2060,10,4
+John Elway,Denver Broncos,1997,502,3635,27,11
+Kerry Collins,Carolina Panthers,1997,381,2124,11,21
+Kordell Stewart,Pittsburgh Steelers,1997,440,3020,21,17
+Mark Brunell,Jacksonville Jaguars,1997,435,3281,18,7
+Neil O'Donnell,New York Jets,1997,460,2796,17,7
+Scott Mitchell,Detroit Lions,1997,509,3484,19,14
+Stan Humphries,San Diego Chargers,1997,225,1488,5,6
+Steve McNair,Tennessee Oilers,1997,415,2665,14,13
+Steve Young,San Francisco 49ers,1997,356,3029,19,6
+Trent Dilfer,Tampa Bay Buccaneers,1997,386,2555,21,11
+Troy Aikman,Dallas Cowboys,1997,518,3283,19,12
+Vinny Testaverde,Baltimore Ravens,1997,470,2971,18,15
+Warren Moon,Seattle Seahawks,1997,528,3678,25,16
+Brett Favre,Green Bay Packers,1998,551,4212,31,23
+Chris Chandler,Atlanta Falcons,1998,327,3154,25,12
+Dan Marino,Miami Dolphins,1998,537,3497,23,15
+Doug Flutie,Buffalo Bills,1998,354,2711,20,11
+Drew Bledsoe,New England Patriots,1998,481,3633,20,14
+Erik Kramer,Chicago Bears,1998,250,1823,9,7
+Jim Harbaugh,Baltimore Ravens,1998,293,1839,12,11
+John Elway,Denver Broncos,1998,356,2806,22,10
+Kordell Stewart,Pittsburgh Steelers,1998,458,2560,11,18
+Mark Brunell,Jacksonville Jaguars,1998,354,2601,20,9
+Neil O'Donnell,Cincinnati Bengals,1998,343,2216,15,4
+Peyton Manning,Indianapolis Colts,1998,575,3739,26,28
+Randall Cunningham,Minnesota Vikings,1998,425,3704,34,10
+Rich Gannon,Kansas City Chiefs,1998,354,2305,10,6
+Steve McNair,Tennessee Oilers,1998,492,3228,15,10
+Steve Young,San Francisco 49ers,1998,517,4170,36,12
+Trent Dilfer,Tampa Bay Buccaneers,1998,429,2729,21,15
+Troy Aikman,Dallas Cowboys,1998,315,2330,12,5
+Vinny Testaverde,New York Jets,1998,421,3256,29,7
+Warren Moon,Seattle Seahawks,1998,258,1632,11,8

@@ -191,3 +191,11 @@ h2 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* In-game scoreboard */
+.scoreboard { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.15; }
+.scoreboard .best { font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.scoreboard .best.new { color: var(--gold); animation: pop 0.4s ease-out; }
+@keyframes pop { 50% { transform: scale(1.25); } }
+.row-btn small { display: block; color: var(--muted); font-weight: 400; font-size: 13px; margin-top: 2px; }
+.nowrap { white-space: nowrap; }

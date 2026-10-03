@@ -71,13 +71,17 @@ export function recordGuess(correct: boolean): void {
   if (correct) save.correct++;
 }
 
-/** Returns true when the streak is a new personal best for the mode. */
-export function recordRun(mode: Mode, streak: number, newGame: boolean): boolean {
-  if (newGame) save.gamesPlayed++;
-  const isBest = streak > (save.best[mode] ?? 0);
-  if (isBest) save.best[mode] = streak;
+/** Saved on every correct answer, so quitting or a crash mid-run can't lose a best. */
+export function recordBest(mode: Mode, streak: number): void {
+  if (streak > (save.best[mode] ?? 0)) {
+    save.best[mode] = streak;
+    void persist();
+  }
+}
+
+export function recordRunEnd(): void {
+  save.gamesPlayed++;
   void persist();
-  return isBest;
 }
 
 export function dailyFor(date: string): DailyRecord | undefined {

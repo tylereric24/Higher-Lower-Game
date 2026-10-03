@@ -1,16 +1,20 @@
 # Gridiron Higher/Lower
 
 Football stats higher/lower game for iOS, Android and the web. Guess whether a player's
-season beat the one on screen: passing TDs, passing yards, rushing yards, receiving yards
-or receptions, across ~3,900 player-seasons from 1999 through 2025 plus a few pre-1999
-legends.
+season beat the one on screen across 12 stats: passing TDs, yards and INTs thrown; rushing
+yards and TDs; receiving yards, receptions and TDs; PPR fantasy points; sacks;
+interceptions; field goals. About 9,800 player-seasons from 2,800+ players: every season
+since 1999, plus 565 seasons from 73 notable QBs going back to 1957.
 
 - **Daily challenge**: 10 matchups, the same for everyone that day, with a shareable
   emoji score grid and a daily streak. Quitting mid-puzzle keeps your answers, so retries
   can't be farmed.
-- **Classic**: endless streak, one miss ends it. Pick a stat or play Mixed. Difficulty ramps
-  by shrinking the gap between the two values (30%+ early, ~1-12% after 15 in a row) and
-  widening the pool from league leaders to every qualified season.
+- **Classic**: endless streak, one miss ends it. Play Mixed, a position (QB, RB, WR, TE,
+  Defense, Kickers; the stat rotates among that position's categories) or a single stat.
+  Difficulty ramps by shrinking the gap between the two values (30%+ early, ~1-12% after 15
+  in a row) and widening the pool from each season's leaders to every qualified season.
+  High scores are kept per mode, shown live during a run, and saved on every correct
+  answer so quitting mid-run can't lose one.
 - **Monetization**: AdMob banner (menus only, never during play), a capped interstitial
   (every 3rd finished run, at most once per 3 minutes), an opt-in rewarded ad to keep a
   streak alive once per run, and a one-time "Remove Ads" purchase through RevenueCat.
@@ -38,10 +42,22 @@ Layout: `src/game.ts` (engine and difficulty), `src/daily.ts` (seeded daily puzz
 npm run data -- --last 2026   # after each season's Super Bowl
 ```
 
-`scripts/build_data.py` pulls regular-season stats from
-[nflverse-data](https://github.com/nflverse/nflverse-data) (CC-BY 4.0; the in-app credit
-satisfies attribution) and writes `src/data/seasons.json`. Note that rebuilding the data
-changes daily puzzles, so ship data updates as their own release.
+`scripts/build_data.py` pulls every regular season since 1999 from
+[nflverse-data](https://github.com/nflverse/nflverse-data) (CC-BY 4.0) and merges the
+pre-1999 QB seasons in `scripts/legends_qb.csv`, writing `src/data/seasons.json`.
+Qualifiers and the stat list live at the top of that script and must match `CATEGORIES`
+in `src/data.ts`. A small `OVERRIDES` table corrects seasons where nflverse's
+play-by-play derivation disagrees with the official record.
+
+`scripts/legends_qb.csv` is produced by `scripts/fetch_legends.py`, which parses
+Wikipedia career tables (CC-BY-SA 4.0) for the QBs listed in it. It cross-checks every
+season it shares with nflverse (TDs and INTs exact, yards within 1%) and refuses to write
+if more than 5% disagree; the current run matched 105 of 108. Rows from articles with
+malformed tables, or with implausible values, are rejected rather than guessed. Add QBs
+by adding their article titles to `QBS` and rerunning. Wikipedia rate-limits shared IPs;
+set `WIKI_CACHE=/some/dir` to avoid refetching.
+
+Rebuilding the data changes daily puzzles, so ship data updates as their own release.
 
 ## Ship it
 

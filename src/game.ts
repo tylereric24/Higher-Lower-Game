@@ -1,8 +1,36 @@
-import { CATEGORIES, type CategoryKey, type Dataset, type Entry } from './data';
+import {
+  CATEGORIES,
+  CATEGORY_BY_KEY,
+  POSITION_BY_KEY,
+  type CategoryKey,
+  type Dataset,
+  type Entry,
+  type PositionKey,
+} from './data';
 import { pick, type Rng } from './rng';
 
 export type Guess = 'higher' | 'lower';
-export type Mode = CategoryKey | 'mixed';
+/** Mixed (every core stat), a single stat, or one position's stats. */
+export type Mode = 'mixed' | CategoryKey | PositionKey;
+
+export interface ModeSpec {
+  categories: CategoryKey[];
+  position?: PositionKey;
+}
+
+export function modeSpec(mode: Mode): ModeSpec {
+  if (mode === 'mixed') return { categories: CATEGORIES.filter((c) => c.core).map((c) => c.key) };
+  if (mode in POSITION_BY_KEY) {
+    const pos = POSITION_BY_KEY[mode as PositionKey];
+    return { categories: pos.categories, position: pos.key };
+  }
+  return { categories: [mode as CategoryKey] };
+}
+
+export function modeLabel(mode: Mode): string {
+  if (mode === 'mixed') return 'Mixed';
+  return mode in POSITION_BY_KEY ? POSITION_BY_KEY[mode as PositionKey].label : CATEGORY_BY_KEY[mode as CategoryKey].label;
+}
 
 export interface Round {
   category: CategoryKey;
@@ -54,10 +82,12 @@ export function pickOpponent(
   round: number,
   rng: Rng,
   used: ReadonlySet<number> = new Set(),
+  position?: PositionKey,
 ): Entry {
   const d = difficultyFor(round);
+  const pool = ds.pool(category, position);
   const base = (starsOnly: boolean) =>
-    (starsOnly ? ds.stars[category] : ds.byCategory[category]).filter(
+    (starsOnly ? pool.stars : pool.all).filter(
       (e) => e.player !== left.player && !used.has(e.seasonId) && e.value !== left.value,
     );
   const inBand = (pool: Entry[], min: number, max: number) =>
@@ -71,17 +101,17 @@ export function pickOpponent(
     () => inBand(base(d.starsOnly), d.minGap, 1),
     () => inBand(base(false), d.minGap, 1),
     () => base(false),
-    () => ds.byCategory[category].filter((e) => e.seasonId !== left.seasonId),
+    () => pool.all.filter((e) => e.seasonId !== left.seasonId),
   ];
   for (const attempt of attempts) {
-    const pool = attempt();
-    if (pool.length) return pick(rng, pool);
+    const candidates = attempt();
+    if (candidates.length) return pick(rng, candidates);
   }
   throw new Error(`no opponent available in ${category}`);
 }
 
-export function randomStart(ds: Dataset, category: CategoryKey, rng: Rng): Entry {
-  return pick(rng, ds.stars[category]);
+export function randomStart(ds: Dataset, category: CategoryKey, rng: Rng, position?: PositionKey): Entry {
+  return pick(rng, ds.pool(category, position).stars);
 }
 
 /** Endless chain: the revealed card becomes the known card for the next round. */
@@ -91,14 +121,16 @@ export class ClassicRun {
   over = false;
   round: Round;
   private readonly used = new Set<number>();
+  private readonly spec: ModeSpec;
 
   constructor(
     private readonly ds: Dataset,
     readonly mode: Mode,
     private readonly rng: Rng,
   ) {
-    const category = mode === 'mixed' ? pick(rng, CATEGORIES).key : mode;
-    const left = randomStart(ds, category, rng);
+    this.spec = modeSpec(mode);
+    const category = pick(rng, this.spec.categories);
+    const left = randomStart(ds, category, rng, this.spec.position);
     this.used.add(left.seasonId);
     this.round = this.makeRound(category, left);
   }
@@ -126,15 +158,17 @@ export class ClassicRun {
   private advance(): void {
     const left = this.round.right;
     let category = this.round.category;
-    if (this.mode === 'mixed') {
-      category = pick(this.rng, [...this.ds.categoriesFor(left.seasonId).keys()]);
+    if (this.spec.categories.length > 1) {
+      // Switch to any stat in this mode that the revealed season also qualifies in.
+      const options = [...this.ds.categoriesFor(left.seasonId).keys()].filter((c) => this.spec.categories.includes(c));
+      category = pick(this.rng, options);
     }
     const leftEntry = this.ds.categoriesFor(left.seasonId).get(category) ?? left;
     this.round = this.makeRound(category, leftEntry);
   }
 
   private makeRound(category: CategoryKey, left: Entry): Round {
-    const right = pickOpponent(this.ds, category, left, this.streak, this.rng, this.used);
+    const right = pickOpponent(this.ds, category, left, this.streak, this.rng, this.used, this.spec.position);
     this.used.add(right.seasonId);
     return { category, left, right };
   }

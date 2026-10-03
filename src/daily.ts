@@ -27,12 +27,12 @@ export function daysBetween(a: string, b: string): number {
 }
 
 /**
- * Ten independent rounds, identical for every player on a given date: each category
- * twice in seeded order, difficulty ramping from easy to hard.
+ * Ten independent rounds, identical for every player on a given date: ten different
+ * core stats in seeded order, difficulty ramping from easy to hard.
  */
 export function dailyRounds(ds: Dataset, key: string): Round[] {
   const rng = mulberry32(hashString(`daily:${key}`));
-  const cats = [...shuffle(rng, CATEGORIES), ...shuffle(rng, CATEGORIES)];
+  const cats = shuffle(rng, CATEGORIES.filter((c) => c.core));
   const used = new Set<number>();
   return cats.slice(0, DAILY_ROUNDS).map(({ key: category }, i) => {
     let left = randomStart(ds, category, rng);
