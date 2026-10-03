@@ -10,6 +10,12 @@ Both players' numbers stay hidden until you answer: is the bottom player's total
 or lower than the top player's? Every round is a fresh pair, since carrying a card over
 would show a number you just saw.
 
+Matchups are balanced so that neither surface cue beats a coin flip: which card sits on
+top is randomized (so "always press Higher" is 50%), and whether the more recent season
+wins is decided by a coin within each decades-apart bucket (so "modern QBs throw more" is
+worthless, even for 1981-vs-2015 matchups; raw, the modern QB wins ~90% of those).
+`src/balance.test.ts` holds every stat to 45-55% on both.
+
 - **Daily challenge**: 10 matchups, the same for everyone that day, with a shareable
   emoji score grid and a daily streak. Each round uses a different stat and two different
   players, all drawn from that season's league leaders; the value gap tightens from 30%+

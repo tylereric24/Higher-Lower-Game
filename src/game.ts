@@ -109,13 +109,45 @@ export function pickOpponent(
       return g >= min && g <= max;
     });
 
-  const attempts: (() => Entry[])[] = [
+  // Every attempt before `floorKept` respects the minimum gap for this round.
+  const banded: (() => Entry[])[] = [
     () => inBand(base(starsOnly), d.minGap, d.maxGap),
     () => inBand(base(starsOnly), d.minGap, 1),
+    ...(opts.starsOnly ? [] : [() => inBand(base(false), d.minGap, 1)]),
+  ];
+  const attempts: (() => Entry[])[] = [
+    ...banded,
     () => base(starsOnly),
-    ...(opts.starsOnly ? [] : [() => inBand(base(false), d.minGap, 1), () => base(false)]),
+    ...(opts.starsOnly ? [] : [() => base(false)]),
     () => pool.all.filter((e) => e.seasonId !== left.seasonId),
   ];
+  // Year must never be a tell: unbalanced, modern QBs out-threw pre-1999 QBs ~90% of
+  // the time. Candidates are grouped by how many decades apart they are from the known
+  // card. Only groups where both outcomes exist (some newer season higher, some lower)
+  // are eligible; one is sampled at its natural rate, then a coin decides whether the
+  // newer season wins. So within every era gap, "pick the recent year" is a coin flip.
+  const wantNewerWins = rng() < 0.5;
+  const decadesApart = (e: Entry) => Math.min(3, Math.floor(Math.abs(e.year - left.year) / 10));
+  const newerWins = (e: Entry) => e.year > left.year === e.value > left.value;
+  const balanced = (candidates: Entry[]) => {
+    const cross = candidates.filter((e) => e.year !== left.year);
+    const twoSided = new Set<number>();
+    for (const bucket of [0, 1, 2, 3]) {
+      const inBucket = cross.filter((e) => decadesApart(e) === bucket);
+      if (inBucket.some(newerWins) && inBucket.some((e) => !newerWins(e))) twoSided.add(bucket);
+    }
+    const eligible = cross.filter((e) => twoSided.has(decadesApart(e)));
+    if (!eligible.length) return [];
+    const bucket = decadesApart(pick(rng, eligible));
+    return eligible.filter((e) => decadesApart(e) === bucket && newerWins(e) === wantNewerWins);
+  };
+
+  // Prefer a balanced pick with a looser gap ceiling, or from beyond the league leaders,
+  // over an unbalanced one; never trade away the gap floor for balance.
+  for (const attempt of banded) {
+    const candidates = balanced(attempt());
+    if (candidates.length) return pick(rng, candidates);
+  }
   for (const attempt of attempts) {
     const candidates = attempt();
     if (candidates.length) return pick(rng, candidates);
@@ -134,9 +166,12 @@ export function pickPair(ds: Dataset, category: CategoryKey, round: number, rng:
   const players = opts.players ?? new Set<string>();
   const fresh = (entries: Entry[]) => entries.filter((e) => !used.has(e.seasonId) && !players.has(e.player));
   const candidates = [fresh(starsOnly ? pool.stars : pool.all), fresh(pool.all), pool.all].find((c) => c.length)!;
-  const left = pick(rng, candidates);
-  const right = pickOpponent(ds, category, left, round, rng, { ...opts, used: new Set([...used, left.seasonId]) });
-  return { category, left, right };
+  const first = pick(rng, candidates);
+  const second = pickOpponent(ds, category, first, round, rng, { ...opts, used: new Set([...used, first.seasonId]) });
+  // Both values are hidden, so the cards are interchangeable: a coin flip for which one
+  // sits on top makes "always press Higher" exactly a 50% strategy. Without it, stats
+  // with a hard qualifying floor (3+ INTs) made Higher right up to 76% of the time.
+  return rng() < 0.5 ? { category, left: first, right: second } : { category, left: second, right: first };
 }
 
 /** Endless streak of independent pairs; difficulty ramps with the streak. */
